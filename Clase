@@ -77,5 +77,35 @@ add.points(q)
 7919%%m
 
 
+x<-()
+head(Sim_est)
+plot(Sim_est)
+plot(sort(Sim_est))
+head(sort(Sim_est))
+
+Sort_Sim_est<-sort(Sim_est)
+Unicos<-unique(Sort_Sim_est)
+tc<-length(Unicos)
+
+#Definir un vector de tamaño length unicos
+
+Freq<-rep(0, tc)
+
+#Freq<-Sort_Sim_est[Sort_Sim_est==Unicos[1]]  examen bala ¿Que diferencia hay de los iguales? dos iguales da true o false y el otro solo da la entrada del primero que se asimilen 
+#Freq2<-Sim_est[Sim_est==Unicos[1]]
+#Freq_est<-length(Freq)/n
+
+#i=1
+for(i in 1:tc){
+aux<-Sort_Sim_est[Sort_Sim_est==Unicos[i]]
+Freq[i]<-length(aux)/(n-1)
+ }
+ 
+sum(Freq)
+
+
+
+
+
 
 
