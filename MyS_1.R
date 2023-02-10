@@ -1,0 +1,81 @@
+#Modelos y Simulacion
+
+set.seed(08022023)
+vec_uni<-runif(100,0,1)
+plot(vec_uni)
+abline(h=0.5,col="blue")
+mean(vec_uni)
+abline(h=mean(vec_uni), col="red")
+
+#Y=a_1X+b_1
+a_1=-.5
+b_1=14
+
+TL_vec<-a_1*vec_uni+b_1
+plot(TL_vec)
+
+mean(TL_vec)
+
+#??De qu?? variable aleatoria provienen estos puntos?
+plot(vec_uni)
+hist(vec_uni)
+
+#Kolmogorov-Smirnov
+#Pruebas de bondad de ajuste
+#Hypothesis Testing
+
+
+
+
+a=7919
+c=0
+#m=17
+#m=23
+#m=25
+#m=193
+m=42
+X0=100001
+n=floor(X0/m)
+
+X<-rep(1,n)
+X<-c(X0,X)
+i=1
+for(i in 1:n){
+  X[i+1]<-(a*X[i]+c)%%m
+}
+
+Sim<-X[2:n]
+Sim_est<-Sim/m
+
+#An??lsis observaciones no estandarizadas
+plot(Sim)
+hist(Sim)
+ecdfSim<-(ecdf(Sim))
+ecdfUnif<-(ecdf(round(runif(n,0,m))))
+
+plot(ecdfSim, verticals = FALSE,do.points=TRUE)
+plot(ecdfUnif, verticals = FALSE,do.points=TRUE,add=TRUE,col="blue")
+
+
+#An??lsis observaciones  estandarizadas
+plot(Sim_est)
+#plot(rnorm(n,0,1))
+hist(Sim_est)
+ecdfSim<-(ecdf(Sim_est))
+ecdfUnif<-(ecdf((runif(n,0,1))))
+
+plot(ecdfSim, verticals = FALSE,do.points=TRUE)
+plot(ecdfUnif, verticals = FALSE,do.points=TRUE,add=TRUE,col="blue")
+
+
+
+
+q<-(seq(0:m)-1)/m
+add.points(q)
+
+
+7919%%m
+
+
+
+
